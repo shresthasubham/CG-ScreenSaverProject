@@ -16,13 +16,13 @@ SCREEN = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption("Menu")
 
 # Load  background image
-BG = pygame.image.load("assets/Background.png")
+BG = pygame.image.load(os.path.join(os.path.dirname(__file__), "assets/Background.png"))
 
 # Function to get font and size of button/menu fonts
 
 
 def get_font(size):
-    return pygame.font.Font("assets/font.ttf", size)
+    return pygame.font.Font(os.path.join(os.path.dirname(__file__),"assets/font.ttf"), size)
 
 ######################################################################################
 # Function to handle PLAY1 screen/2D rendring
@@ -61,7 +61,7 @@ def PLAY1():
 
     # Create lists of characters and their corresponding rendered fonts
     katakana = [chr(int('0x30A0', 16) + i) for i in range(96)]
-    font = pygame.font.Font('assets/MSMINCHO.ttf', FONT_SIZE)
+    font = pygame.font.Font(os.path.join(os.path.dirname(__file__),'assets/MSMINCHO.ttf'), FONT_SIZE)
     green_katakana = [font.render(
         char, True, (40, randrange(160, 256), 40)) for char in katakana]
     lightgreen_katakana = [font.render(
@@ -209,11 +209,11 @@ def main_menu():
         ABOUT_RECT = ABOUT_TEXT.get_rect(center=(640, 650))
 
         # Create buttons
-        PLAY1_BUTTON = Button(image=pygame.image.load("assets/Play Rect.png"), pos=(640, 250),
+        PLAY1_BUTTON = Button(image=pygame.image.load(os.path.join(os.path.dirname(__file__),"assets/Play Rect.png")), pos=(640, 250),
                               text_input="2D SS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        PLAY2_BUTTON = Button(image=pygame.image.load("assets/Play Rect.png"), pos=(640, 400),
+        PLAY2_BUTTON = Button(image=pygame.image.load(os.path.join(os.path.dirname(__file__),"assets/Play Rect.png")), pos=(640, 400),
                               text_input="3D SS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("assets/Quit Rect.png"), pos=(640, 550),
+        QUIT_BUTTON = Button(image=pygame.image.load(os.path.join(os.path.dirname(__file__),"assets/Quit Rect.png")), pos=(640, 550),
                              text_input="QUIT", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         # Display menu text and update button colors

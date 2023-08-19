@@ -14,7 +14,7 @@ aspectRatio = screenWidth/screenHeight
 
 
 def get_font(size):
-    return pg.font.Font("assets/font.ttf", size)
+    return pg.font.Font(os.path.join(os.path.dirname(__file__),"assets/font.ttf"), size)
 
 
 class App:
@@ -25,7 +25,7 @@ class App:
         pg.display.set_mode((screenWidth, screenHeight),
                             pg.OPENGL | pg.DOUBLEBUF)
         self.clock = pg.time.Clock()
-        self.quit_button = Button(image=pg.image.load("assets/Play Rect.png"), pos=(640, 650),
+        self.quit_button = Button(image=pg.image.load(os.path.join(os.path.dirname(__file__),"assets/Play Rect.png")), pos=(640, 650),
                                   text_input="BACK", font=get_font(50), base_color="White", hovering_color="Green")
 
         # initialize screen
